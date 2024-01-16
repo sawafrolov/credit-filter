@@ -21,17 +21,23 @@ springBoot {
 }
 
 dependencies {
+
+    // Spring Boot
     implementation("org.springframework.boot:spring-boot-starter")
     implementation("org.springframework.boot:spring-boot-starter-web")
-    implementation("org.springframework.boot:spring-boot-starter-validation")
 
+    // Jackson for Kotlin
+    implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
+
+    // Camunda DMN Engine
     implementation("org.camunda.bpm.dmn:camunda-engine-dmn:7.20.0")
 
+    // Project Lombok
     compileOnly("org.projectlombok:lombok")
     annotationProcessor("org.projectlombok:lombok")
 
+    // Spring Boot Test
     testImplementation("org.springframework.boot:spring-boot-starter-test")
-    implementation(kotlin("stdlib-jdk8"))
 }
 
 tasks.withType<KotlinCompile> {
