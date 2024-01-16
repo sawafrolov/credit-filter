@@ -16,7 +16,7 @@ class OrderValidationServiceImpl(
     private val order2VariableMapConverter: Converter<Order, VariableMap>
 ): OrderValidationService {
 
-    override fun validateOrder(order: Order): Boolean {
+    override fun hasStopFactors(order: Order): Boolean {
         val variables = order2VariableMapConverter.convert(order)
         val result = dmnEngine.evaluateDecisionTable(dmnDecision, variables)
         return result

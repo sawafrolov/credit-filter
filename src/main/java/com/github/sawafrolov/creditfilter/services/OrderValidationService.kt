@@ -4,5 +4,5 @@ import com.github.sawafrolov.creditfilter.dto.Order
 
 interface OrderValidationService {
 
-    fun validateOrder(order: Order): Boolean
+    fun hasStopFactors(order: Order): Boolean
 }
