@@ -10,6 +10,8 @@ import java.io.FileInputStream
 @Configuration
 class CommonConfiguration {
 
+    private val dmnFilePath = "src/main/resources/camunda/diagram.dmn"
+
     @Bean
     fun dmnEngine(): DmnEngine {
         return DmnEngineConfiguration
@@ -19,7 +21,7 @@ class CommonConfiguration {
 
     @Bean
     fun dmnDecision(dmnEngine: DmnEngine): DmnDecision {
-        FileInputStream("camunda/diagram.dmn").use {
+        FileInputStream(dmnFilePath).use {
             return dmnEngine.parseDecision("Decision_0ozg60u", it)
         }
     }

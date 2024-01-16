@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_1vipdaw" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.19.0" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="8.4.0">
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/2.0" id="Definitions_1vipdaw" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.19.0" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="8.4.0">
   <decision id="Decision_0ozg60u" name="Decision 1">
     <decisionTable id="DecisionTable_05vz6i0">
       <input id="Input_1" label="ИП">
@@ -23,8 +23,9 @@
         </inputExpression>
       </input>
       <output id="Output_1" label="Отказ в рассмотрении заявки" name="isRejected" typeRef="boolean" />
+      <output id="OutputClause_06wgao9" label="Причина отказа" name="rejectReason" typeRef="string" biodi:width="299" />
       <rule id="DecisionRule_147q91o">
-        <description>Не выдаем кредиты ИП</description>
+        <description></description>
         <inputEntry id="UnaryTests_00lymm7">
           <text>true</text>
         </inputEntry>
@@ -40,9 +41,12 @@
         <outputEntry id="LiteralExpression_1tig0ks">
           <text>true</text>
         </outputEntry>
+        <outputEntry id="LiteralExpression_078enf8">
+          <text>Не выдаем кредиты ИП</text>
+        </outputEntry>
       </rule>
       <rule id="DecisionRule_03yxd9r">
-        <description>Не выдаем кредиты компаниям из Красноярского края</description>
+        <description></description>
         <inputEntry id="UnaryTests_1ru20ix">
           <text></text>
         </inputEntry>
@@ -58,9 +62,12 @@
         <outputEntry id="LiteralExpression_1wgd1a3">
           <text>true</text>
         </outputEntry>
+        <outputEntry id="LiteralExpression_0gys278">
+          <text>Не выдаем кредиты компаниям из Красноярского края</text>
+        </outputEntry>
       </rule>
       <rule id="DecisionRule_0i6nzgx">
-        <description>Не выдаем кредиты компаниям с капиталом менее 5 миллионов рублей</description>
+        <description></description>
         <inputEntry id="UnaryTests_1m1s1c2">
           <text></text>
         </inputEntry>
@@ -76,9 +83,12 @@
         <outputEntry id="LiteralExpression_0fq18i8">
           <text>true</text>
         </outputEntry>
+        <outputEntry id="LiteralExpression_0hftbak">
+          <text>Не выдаем кредиты компаниям с капиталом менее 5 миллионов рублей</text>
+        </outputEntry>
       </rule>
       <rule id="DecisionRule_0npsn8z">
-        <description>Не выдаем кредиты нерезидентам РФ</description>
+        <description></description>
         <inputEntry id="UnaryTests_025cnu6">
           <text></text>
         </inputEntry>
@@ -93,6 +103,29 @@
         </inputEntry>
         <outputEntry id="LiteralExpression_1863o9x">
           <text>true</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1m4lsde">
+          <text>Не выдаем кредиты нерезидентам РФ</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_14vdkpn">
+        <inputEntry id="UnaryTests_0g6rrg8">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0odnm8w">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_02t2zch">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_178nihh">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0s0jphc">
+          <text>false</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_09j9r8g">
+          <text></text>
         </outputEntry>
       </rule>
     </decisionTable>

@@ -4,9 +4,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 
 @SpringBootApplication
-class CreditFilterApplication {
+class CreditFilterApplication
 
-    fun main(args: Array<String>) {
-        runApplication<CreditFilterApplication>(*args)
-    }
+fun main(args: Array<String>) {
+    runApplication<CreditFilterApplication>(*args)
 }

@@ -1,6 +1,6 @@
 package com.github.sawafrolov.creditfilter.controllers
 
-import com.github.sawafrolov.creditfilter.dto.Order
+import com.github.sawafrolov.creditfilter.dto.OrderDto
 import com.github.sawafrolov.creditfilter.services.OrderValidationService
 import lombok.RequiredArgsConstructor
 import org.springframework.http.HttpStatus
@@ -20,7 +20,7 @@ class OrderController(
 
     @RequestMapping(method = [RequestMethod.POST])
     @ResponseStatus(HttpStatus.CREATED)
-    fun createOrder(@RequestBody order: Order): Order {
+    fun createOrder(@RequestBody order: OrderDto): OrderDto {
         if (orderValidationService.hasStopFactors(order)) {
             throw ResponseStatusException(HttpStatus.BAD_REQUEST)
         }
