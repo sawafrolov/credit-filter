@@ -1,8 +1,9 @@
 package com.github.sawafrolov.creditfilter.services
 
+import com.github.sawafrolov.creditfilter.dto.CheckStopFactorsResultDto
 import com.github.sawafrolov.creditfilter.dto.OrderDto
 
 interface OrderValidationService {
 
-    fun hasStopFactors(order: OrderDto): Boolean
+    fun checkStopFactors(order: OrderDto): CheckStopFactorsResultDto
 }

@@ -1,5 +1,6 @@
 package com.github.sawafrolov.creditfilter.services
 
+import com.github.sawafrolov.creditfilter.dto.CheckStopFactorsResultDto
 import com.github.sawafrolov.creditfilter.dto.OrderDto
 import lombok.RequiredArgsConstructor
 import org.camunda.bpm.dmn.engine.DmnDecision
@@ -16,10 +17,10 @@ class OrderValidationServiceImpl(
     private val order2VariableMapConverter: Converter<OrderDto, VariableMap>
 ): OrderValidationService {
 
-    override fun hasStopFactors(order: OrderDto): Boolean {
+    override fun checkStopFactors(order: OrderDto): CheckStopFactorsResultDto {
         val variables = order2VariableMapConverter.convert(order)
-        val result = dmnEngine.evaluateDecisionTable(dmnDecision, variables)
-        return result
+        return dmnEngine
+            .evaluateDecisionTable(dmnDecision, variables)
             .singleResult
             .getSingleEntry()
     }
