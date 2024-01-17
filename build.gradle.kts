@@ -30,6 +30,10 @@ dependencies {
     // Jackson for Kotlin
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
 
+    // MapStruct
+    implementation("org.mapstruct:mapstruct:1.5.3.Final")
+    annotationProcessor("org.mapstruct:mapstruct-processor:1.5.3.Final")
+
     // Camunda DMN Engine
     implementation("org.camunda.bpm.dmn:camunda-engine-dmn:7.20.0")
 

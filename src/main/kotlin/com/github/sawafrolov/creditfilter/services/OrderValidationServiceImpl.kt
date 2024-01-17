@@ -14,11 +14,11 @@ import org.springframework.stereotype.Service
 class OrderValidationServiceImpl(
     private val dmnEngine: DmnEngine,
     private val dmnDecision: DmnDecision,
-    private val order2VariableMapConverter: Converter<OrderDto, VariableMap>
+    private val orderDto2VariableMapConverter: Converter<OrderDto, VariableMap>
 ): OrderValidationService {
 
-    override fun checkStopFactors(order: OrderDto): CheckStopFactorsResultDto {
-        val variables = order2VariableMapConverter.convert(order)
+    override fun checkStopFactors(orderDto: OrderDto): CheckStopFactorsResultDto {
+        val variables = orderDto2VariableMapConverter.convert(orderDto)
         val result = dmnEngine
             .evaluateDecisionTable(dmnDecision, variables)
             .singleResult

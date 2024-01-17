@@ -5,5 +5,5 @@ import com.github.sawafrolov.creditfilter.dto.OrderDto
 
 interface OrderValidationService {
 
-    fun checkStopFactors(order: OrderDto): CheckStopFactorsResultDto
+    fun checkStopFactors(orderDto: OrderDto): CheckStopFactorsResultDto
 }

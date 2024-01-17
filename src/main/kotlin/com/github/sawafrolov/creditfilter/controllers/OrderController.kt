@@ -19,7 +19,7 @@ class OrderController(
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    fun createOrder(@RequestBody order: OrderDto): OrderDto {
-        return orderService.createOrder(order)
+    fun createOrder(@RequestBody orderDto: OrderDto): OrderDto {
+        return orderService.createOrder(orderDto)
     }
 }

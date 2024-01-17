@@ -8,7 +8,7 @@ import org.springframework.core.convert.converter.Converter
 import org.springframework.stereotype.Component
 
 @Component
-class Order2VariableMapConverter: Converter<OrderDto, VariableMap> {
+class OrderDto2VariableMapConverter: Converter<OrderDto, VariableMap> {
 
     override fun convert(source: OrderDto): VariableMap? {
         return Variables.fromMap(
