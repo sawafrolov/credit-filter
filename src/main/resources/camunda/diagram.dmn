@@ -42,7 +42,7 @@
           <text>true</text>
         </outputEntry>
         <outputEntry id="LiteralExpression_078enf8">
-          <text>Не выдаем кредиты ИП</text>
+          <text>"Не выдаем кредиты ИП"</text>
         </outputEntry>
       </rule>
       <rule id="DecisionRule_03yxd9r">
@@ -63,7 +63,7 @@
           <text>true</text>
         </outputEntry>
         <outputEntry id="LiteralExpression_0gys278">
-          <text>Не выдаем кредиты компаниям из Красноярского края</text>
+          <text>"Не выдаем кредиты компаниям из Красноярского края"</text>
         </outputEntry>
       </rule>
       <rule id="DecisionRule_0i6nzgx">
@@ -84,7 +84,7 @@
           <text>true</text>
         </outputEntry>
         <outputEntry id="LiteralExpression_0hftbak">
-          <text>Не выдаем кредиты компаниям с капиталом менее 5 миллионов рублей</text>
+          <text>"Не выдаем кредиты компаниям с капиталом менее 5 миллионов рублей"</text>
         </outputEntry>
       </rule>
       <rule id="DecisionRule_0npsn8z">
@@ -105,7 +105,7 @@
           <text>true</text>
         </outputEntry>
         <outputEntry id="LiteralExpression_1m4lsde">
-          <text>Не выдаем кредиты нерезидентам РФ</text>
+          <text>"Не выдаем кредиты нерезидентам РФ"</text>
         </outputEntry>
       </rule>
       <rule id="DecisionRule_14vdkpn">
@@ -125,7 +125,7 @@
           <text>false</text>
         </outputEntry>
         <outputEntry id="LiteralExpression_09j9r8g">
-          <text></text>
+          <text>""</text>
         </outputEntry>
       </rule>
     </decisionTable>

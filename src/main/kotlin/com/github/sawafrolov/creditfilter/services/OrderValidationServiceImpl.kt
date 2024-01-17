@@ -19,9 +19,14 @@ class OrderValidationServiceImpl(
 
     override fun checkStopFactors(order: OrderDto): CheckStopFactorsResultDto {
         val variables = order2VariableMapConverter.convert(order)
-        return dmnEngine
+        val result = dmnEngine
             .evaluateDecisionTable(dmnDecision, variables)
             .singleResult
-            .getSingleEntry()
+            .entryMap
+
+        return CheckStopFactorsResultDto(
+            result["isRejected"] as Boolean,
+            result["rejectReason"] as String
+        )
     }
 }
