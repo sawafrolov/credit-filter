@@ -12,6 +12,8 @@ class CamundaConfiguration {
 
     private val dmnFilePath = "src/main/resources/camunda/diagram.dmn"
 
+    private val dmnDecisionKey = "Decision_0ozg60u"
+
     @Bean
     fun dmnEngine(): DmnEngine {
         return DmnEngineConfiguration
@@ -22,7 +24,7 @@ class CamundaConfiguration {
     @Bean
     fun dmnDecision(dmnEngine: DmnEngine): DmnDecision {
         FileInputStream(dmnFilePath).use {
-            return dmnEngine.parseDecision("Decision_0ozg60u", it)
+            return dmnEngine.parseDecision(dmnDecisionKey, it)
         }
     }
 }
