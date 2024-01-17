@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Configuration
 import java.io.FileInputStream
 
 @Configuration
-class CommonConfiguration {
+class CamundaConfiguration {
 
     private val dmnFilePath = "src/main/resources/camunda/diagram.dmn"
 
