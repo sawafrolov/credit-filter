@@ -10,7 +10,7 @@ import java.math.BigDecimal
 data class Order(
 
     @Id
-    private val order_id: String,
+    private val orderId: String,
 
     @Field(type = FieldType.Text, name = "inn")
     private val inn: String,
