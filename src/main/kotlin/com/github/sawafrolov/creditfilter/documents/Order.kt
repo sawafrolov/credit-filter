@@ -10,14 +10,14 @@ import java.math.BigDecimal
 data class Order(
 
     @Id
-    private val orderId: String,
+    val orderId: String?,
 
     @Field(type = FieldType.Text, name = "inn")
-    private val inn: String,
+    val inn: String,
 
     @Field(type = FieldType.Integer, name = "region_number")
-    private val regionNumber: Int,
+    val regionNumber: Int,
 
     @Field(type = FieldType.Double, name = "capital")
-    private val capital: BigDecimal
+    val capital: BigDecimal
 )
