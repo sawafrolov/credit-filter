@@ -1,7 +1,9 @@
 package com.github.sawafrolov.creditfilter.controllers
 
+import com.github.sawafrolov.creditfilter.dto.OrderCreateDto
 import com.github.sawafrolov.creditfilter.dto.OrderDto
 import com.github.sawafrolov.creditfilter.services.OrderService
+import jakarta.validation.Valid
 import lombok.RequiredArgsConstructor
 import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.PostMapping
@@ -19,7 +21,7 @@ class OrderController(
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    fun createOrder(@RequestBody orderDto: OrderDto): OrderDto {
-        return orderService.createOrder(orderDto)
+    fun createOrder(@RequestBody @Valid orderCreateDto: OrderCreateDto): OrderDto {
+        return orderService.createOrder(orderCreateDto)
     }
 }

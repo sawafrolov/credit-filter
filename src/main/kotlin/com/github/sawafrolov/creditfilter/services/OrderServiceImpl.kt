@@ -1,5 +1,6 @@
 package com.github.sawafrolov.creditfilter.services
 
+import com.github.sawafrolov.creditfilter.dto.OrderCreateDto
 import com.github.sawafrolov.creditfilter.dto.OrderDto
 import com.github.sawafrolov.creditfilter.mappers.OrderMapper
 import com.github.sawafrolov.creditfilter.repositories.OrderRepository
@@ -16,13 +17,13 @@ class OrderServiceImpl(
     private val orderValidationService: OrderValidationService
 ): OrderService {
 
-    override fun createOrder(orderDto: OrderDto): OrderDto {
-        val checkStopFactorsResult = orderValidationService.checkStopFactors(orderDto)
+    override fun createOrder(orderCreateDto: OrderCreateDto): OrderDto {
+        val checkStopFactorsResult = orderValidationService.checkStopFactors(orderCreateDto)
         if (checkStopFactorsResult.isRejected) {
             throw ResponseStatusException(HttpStatus.BAD_REQUEST, checkStopFactorsResult.rejectReason)
         }
 
-        val order = orderRepository.save(orderMapper.mapToDocument(orderDto))
+        val order = orderRepository.save(orderMapper.mapToDocument(orderCreateDto))
         return orderMapper.mapToDto(order)
     }
 }
