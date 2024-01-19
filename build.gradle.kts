@@ -6,6 +6,7 @@ plugins {
     id("io.spring.dependency-management") version "1.1.2"
     kotlin("jvm") version "1.9.0"
     kotlin("plugin.spring") version "1.9.0"
+    kotlin("kapt") version "1.9.0"
 }
 
 group = "com.github.sawafrolov"
@@ -32,7 +33,7 @@ dependencies {
 
     // MapStruct
     implementation("org.mapstruct:mapstruct:1.5.3.Final")
-    annotationProcessor("org.mapstruct:mapstruct-processor:1.5.3.Final")
+    kapt("org.mapstruct:mapstruct-processor:1.5.3.Final")
 
     // Camunda DMN Engine
     implementation("org.camunda.bpm.dmn:camunda-engine-dmn:7.20.0")
@@ -40,6 +41,9 @@ dependencies {
     // Project Lombok
     compileOnly("org.projectlombok:lombok")
     annotationProcessor("org.projectlombok:lombok")
+
+    // MapStruct Annotation Processor
+    annotationProcessor("org.mapstruct:mapstruct-processor:1.5.3.Final")
 
     // Spring Boot Test
     testImplementation("org.springframework.boot:spring-boot-starter-test")
