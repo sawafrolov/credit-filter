@@ -7,15 +7,15 @@ import com.github.sawafrolov.creditfilter.dto.OrderDto
 import java.math.BigDecimal
 
 fun correctDto() = OrderCreateDto(
-    "1212121212", 12, BigDecimal("123456789.10")
+    "1212121212", 12, BigDecimal("123456789.12")
 )
 
 fun ipDto() = OrderCreateDto(
-    "121212121212", 12, BigDecimal("123456789.10")
+    "121212121212", 12, BigDecimal("123456789.12")
 )
 
 fun krasnoyarskDto() = OrderCreateDto(
-    "1212121212", 24, BigDecimal("123456789.10")
+    "1212121212", 24, BigDecimal("123456789.12")
 )
 
 fun capitalExactlyFiveMillionsDto() = OrderCreateDto(
@@ -27,19 +27,19 @@ fun capitalLessThanFiveMillionsDto() = OrderCreateDto(
 )
 
 fun nonResidentDto() = OrderCreateDto(
-    "9909090909", 12, BigDecimal("123456789.10")
+    "9909090909", 12, BigDecimal("123456789.12")
 )
 
 fun correctOrder() = Order(
-    null, "1212121212", 12, BigDecimal("123456789.10")
+    null, "1212121212", 12, BigDecimal("123456789.12")
 )
 
 fun correctOrderWithId() = Order(
-    "Some_string_id", "1212121212", 12, BigDecimal("123456789.10")
+    "Some_string_id", "1212121212", 12, BigDecimal("123456789.12")
 )
 
 fun correctOrderDto() = OrderDto(
-    "Some_string_id", "1212121212", 12, BigDecimal("123456789.10")
+    "Some_string_id", "1212121212", 12, BigDecimal("123456789.12")
 )
 
 fun correctCheckResultDto() = CheckStopFactorsResultDto(false, "")

@@ -5,7 +5,7 @@ Content-Type: application/json
 {
   "inn": "1212121212",
   "regionNumber": 12,
-  "capital": "123456789.10"
+  "capital": "123456789.12"
 }
 
 ### Некорректный ИНН 1
@@ -15,7 +15,7 @@ Content-Type: application/json
 {
   "inn": "123",
   "regionNumber": 123,
-  "capital": "123456789.10"
+  "capital": "123456789.12"
 }
 
 ### Некорректный ИНН 2
@@ -25,7 +25,7 @@ Content-Type: application/json
 {
   "inn": "123123123123123",
   "regionNumber": 123,
-  "capital": "123456789.10"
+  "capital": "123456789.12"
 }
 
 ### Некорректный капитал
@@ -35,7 +35,7 @@ Content-Type: application/json
 {
   "inn": "1212121212",
   "regionNumber": 12,
-  "capital": "-12.00"
+  "capital": "0.00"
 }
 
 ### ИП
@@ -45,7 +45,7 @@ Content-Type: application/json
 {
   "inn": "123123123123",
   "regionNumber": 123,
-  "capital": "123456789.10"
+  "capital": "123456789.12"
 }
 
 ### Нерезидент РФ
@@ -55,7 +55,7 @@ Content-Type: application/json
 {
   "inn": "9909090909",
   "regionNumber": 123,
-  "capital": "123456789.10"
+  "capital": "123456789.12"
 }
 
 ### Красноярский край
@@ -65,7 +65,7 @@ Content-Type: application/json
 {
   "inn": "1212121212",
   "regionNumber": 24,
-  "capital": "123456789.10"
+  "capital": "123456789.12"
 }
 
 ### Капитал ровно 5 миллионов
