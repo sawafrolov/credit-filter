@@ -1,6 +1,7 @@
 package com.github.sawafrolov.creditfilter
 
 import com.github.sawafrolov.creditfilter.documents.Order
+import com.github.sawafrolov.creditfilter.dto.CheckStopFactorsResultDto
 import com.github.sawafrolov.creditfilter.dto.OrderCreateDto
 import com.github.sawafrolov.creditfilter.dto.OrderDto
 import java.math.BigDecimal
@@ -40,3 +41,7 @@ fun correctOrderWithId() = Order(
 fun correctOrderDto() = OrderDto(
     "Some_string_id", "1212121212", 12, BigDecimal("123456789.10")
 )
+
+fun correctCheckResultDto() = CheckStopFactorsResultDto(false, "")
+
+fun ipCheckResultDto() = CheckStopFactorsResultDto(true, "Не выдаем кредиты ИП")

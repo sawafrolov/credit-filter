@@ -1,6 +1,5 @@
 package com.github.sawafrolov.creditfilter
 
-import com.github.sawafrolov.creditfilter.dto.CheckStopFactorsResultDto
 import com.github.sawafrolov.creditfilter.mappers.OrderMapper
 import com.github.sawafrolov.creditfilter.repositories.OrderRepository
 import com.github.sawafrolov.creditfilter.services.OrderService
@@ -26,13 +25,14 @@ class OrderServiceTest {
     @DisplayName("Проверка на корректном тестовом примере")
     fun testCorrect() {
         val correctDto = correctDto()
+        val correctCheckResultDto = correctCheckResultDto()
         val correctOrder = correctOrder()
         val correctOrderWithId = correctOrderWithId()
         val correctOrderDto = correctOrderDto()
 
         every {
             orderValidationService.checkStopFactors(correctDto)
-        } returns CheckStopFactorsResultDto(false, "")
+        } returns correctCheckResultDto
 
         every {
             orderMapper.mapToDocument(correctDto)
@@ -53,10 +53,9 @@ class OrderServiceTest {
     @DisplayName("Проверка на тестовом примере для ИП")
     fun testIp() {
         val dto = ipDto()
-        val message = "Не выдаем кредиты ИП"
         every {
             orderValidationService.checkStopFactors(dto)
-        } returns CheckStopFactorsResultDto(true, message)
+        } returns ipCheckResultDto()
         assertThrows<ResponseStatusException> {
             orderService.createOrder(dto)
         }
