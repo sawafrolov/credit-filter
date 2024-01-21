@@ -12,6 +12,7 @@ import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertThrows
 import org.springframework.web.server.ResponseStatusException
+import java.util.*
 
 class OrderServiceTest {
 
@@ -58,6 +59,38 @@ class OrderServiceTest {
         } returns ipCheckResultDto()
         assertThrows<ResponseStatusException> {
             orderService.createOrder(dto)
+        }
+    }
+
+    @Test
+    @DisplayName("Проверка получения существующей заявки по id")
+    fun testGetOrderByPresentId() {
+        val correctOrderWithId = correctOrderWithId()
+        val correctOrderDto = correctOrderDto()
+        val orderId = correctOrderWithId.orderId.orEmpty()
+
+        every {
+            orderRepository.findById(orderId)
+        } returns Optional.of(correctOrderWithId)
+
+        every {
+            orderMapper.mapToDto(correctOrderWithId)
+        } returns correctOrderDto
+
+        assertEquals(correctOrderDto, orderService.getOrderById(orderId))
+    }
+
+    @Test
+    @DisplayName("Проверка получения заявки по id, которого нет в ElasticSearch")
+    fun testGetOrderByAbsentId() {
+        val orderId = "orderId"
+
+        every {
+            orderRepository.findById(orderId)
+        } returns Optional.empty()
+
+        assertThrows<ResponseStatusException> {
+            orderService.getOrderById(orderId)
         }
     }
 }
