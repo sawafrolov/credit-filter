@@ -26,4 +26,14 @@ class OrderServiceImpl(
         val order = orderRepository.save(orderMapper.mapToDocument(orderCreateDto))
         return orderMapper.mapToDto(order)
     }
+
+    override fun getOrderById(orderId: String): OrderDto {
+        return orderRepository
+            .findById(orderId)
+            .map {
+                orderMapper.mapToDto(it)
+            }.orElseThrow {
+                ResponseStatusException(HttpStatus.NOT_FOUND)
+            }
+    }
 }

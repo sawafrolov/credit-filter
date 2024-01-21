@@ -6,6 +6,8 @@ import com.github.sawafrolov.creditfilter.services.OrderService
 import jakarta.validation.Valid
 import lombok.RequiredArgsConstructor
 import org.springframework.http.HttpStatus
+import org.springframework.web.bind.annotation.GetMapping
+import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestMapping
@@ -23,5 +25,11 @@ class OrderController(
     @ResponseStatus(HttpStatus.CREATED)
     fun createOrder(@RequestBody @Valid orderCreateDto: OrderCreateDto): OrderDto {
         return orderService.createOrder(orderCreateDto)
+    }
+
+    @GetMapping(value = ["/{orderId}"])
+    @ResponseStatus(HttpStatus.OK)
+    fun getOrderById(@PathVariable orderId: String): OrderDto {
+        return orderService.getOrderById(orderId)
     }
 }
