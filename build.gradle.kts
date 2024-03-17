@@ -26,29 +26,36 @@ dependencies {
     // Spring Boot
     implementation("org.springframework.boot:spring-boot-starter")
     implementation("org.springframework.boot:spring-boot-starter-web")
+    implementation("org.springframework.boot:spring-boot-starter-data-jpa")
     implementation("org.springframework.boot:spring-boot-starter-validation")
     implementation("org.springframework.boot:spring-boot-starter-data-elasticsearch")
 
     // Jackson for Kotlin
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
 
+    // Liquibase
+    implementation("org.liquibase:liquibase-core")
+
+    // PostgreSQL
+    runtimeOnly("org.postgresql:postgresql")
+
     // MapStruct
-    implementation("org.mapstruct:mapstruct:1.5.3.Final")
-    kapt("org.mapstruct:mapstruct-processor:1.5.3.Final")
+    implementation("org.mapstruct:mapstruct:${property("mapstructVersion")}")
+    kapt("org.mapstruct:mapstruct-processor:${property("mapstructVersion")}")
 
     // Camunda DMN Engine
-    implementation("org.camunda.bpm.dmn:camunda-engine-dmn:7.20.0")
+    implementation("org.camunda.bpm.dmn:camunda-engine-dmn:${property("camundaDmnEngineVersion")}")
 
     // Project Lombok
     compileOnly("org.projectlombok:lombok")
     annotationProcessor("org.projectlombok:lombok")
 
     // MapStruct Annotation Processor
-    annotationProcessor("org.mapstruct:mapstruct-processor:1.5.3.Final")
+    annotationProcessor("org.mapstruct:mapstruct-processor:${property("mapstructVersion")}")
 
     // Testing
     testImplementation("org.springframework.boot:spring-boot-starter-test")
-    testImplementation("com.ninja-squad:springmockk:4.0.2")
+    testImplementation("com.ninja-squad:springmockk:${property("springMockkVersion")}")
 }
 
 tasks.withType<KotlinCompile> {
